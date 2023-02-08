@@ -1,15 +1,17 @@
 //className
-const Item =()=>{
-    const name =`พักโรงแรม`
-    const amountr =5000
+import PropTypes from 'prop-types';
+const Item =(props)=>{
+    const {title,amount} = props
     return(
-        <li>{name} <span>-{amountr}</span> </li>
+        <li>{title} <span> {amount}</span> </li>
 
     )
 }
 
-
-
+Item.prototype={
+    title:PropTypes.string.isRequired,
+    amount:PropTypes.number.isRequired
+}
 
 
 export default Item
