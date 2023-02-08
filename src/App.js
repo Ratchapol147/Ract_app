@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import './App.css'
+import Transaction from "./components/Transaction";
+
+
+const design = {color:'red',textAlign:'center',fontSize:'1.5rem'}
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <article className='container'>
+        <h1 style={design}>โปรแกรมบัญรายรับ - รายจ่าย</h1>
+        <Transaction/>
+        <p>5.30</p>
+      </article>
+    </>
+  ); 
 }
 
 export default App;
