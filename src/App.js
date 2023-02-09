@@ -11,17 +11,11 @@ import { BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom'
 
 
 const design = {color:'red',textAlign:'center',fontSize:'1.5rem'}
-const initState =[
-  {id:1,title:'A',amount:60000},
-  {id:2,title:'B',amount:2040},
-  {id:3,title:'C',amount:-2500},
-  {id:4,title:'D',amount:2040},
-  {id:5,title:'E',amount:2040},
-]
+
 
 function App() {
   
-  const [item,setItems] = useState(initState)
+  const [item,setItems] = useState([])
 
   const [reportIncome,setreportIncome] = useState(0)
   const [reportExpense,setreportExpense] = useState(0)
