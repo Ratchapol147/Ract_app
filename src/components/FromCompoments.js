@@ -3,8 +3,8 @@ import './FromCompoment.css'
 import { v4 as uuidv4 } from 'uuid'
 
 const FormCompoent = ({onAddItem})=>{
-    const [title,settitle] = useState('')
-    const [amount,setamount] = useState()
+    const [title,settitle] = useState(' ')
+    const [amount,setamount] = useState('')
 
     const inputtitle =(event)=>{
         settitle(event.target.value)
@@ -22,7 +22,7 @@ const FormCompoent = ({onAddItem})=>{
         
         onAddItem(itemData)
         settitle('')
-        setamount(0)
+        setamount('')
     }
     return(
         <div>

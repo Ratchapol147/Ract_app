@@ -8,14 +8,10 @@ const design = {color:'red',textAlign:'center',fontSize:'1.5rem'}
 
 
 function App() {
-  const initData =[
-    {id:1,title:'เงินเดือน',amount:500},
-    {id:2,title:'เงินเดือน',amount:50000},
-    {id:3,title:'ค่าเดินทาง',amount:500},
-
-  ]
-  const [item,setItems] = useState(initData)
+ 
+  const [item,setItems] = useState([])
   const onAddNewItem = (newItem) =>{
+    //prevItem = initData
     setItems((prevItem)=>{
       return[newItem,...prevItem]
     })
