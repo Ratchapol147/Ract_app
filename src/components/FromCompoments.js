@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import './FromCompoment.css'
 import { v4 as uuidv4 } from 'uuid'
 
-const FormCompoent = ({onAddItem})=>{
-    const [title,settitle] = useState(' ')
+const FormCompoent = (Props)=>{
+    const [title,settitle] = useState('')
     const [amount,setamount] = useState('')
+    const [formValid,setFormValid]=useState(false)
+    
 
     const inputtitle =(event)=>{
         settitle(event.target.value)
@@ -20,10 +22,14 @@ const FormCompoent = ({onAddItem})=>{
             amount:Number(amount)
         }
         
-        onAddItem(itemData)
+        Props.onAddItem(itemData)
         settitle('')
-        setamount('')
+        setamount(0)
     }
+    useEffect(()=>{
+        const checkData = title.trim().length>0 && amount!==0
+        setFormValid(checkData)
+    },[title,amount])
     return(
         <div>
             <form onSubmit={saveItem}>
@@ -36,7 +42,7 @@ const FormCompoent = ({onAddItem})=>{
                     <input type='number' placeholder="(+ รายรับ, - รายจ่าย)" onChange={inputamount} value={amount}></input>
                 </div>
                 <div >
-                    <button type="Submit" className='btn'>เพิ่มข้อมูล</button>
+                    <button type="Submit" className='btn' disabled={!formValid}>เพิ่มข้อมูล</button>
                 </div>
             </form>
         </div>
